@@ -1,0 +1,85 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="300"
+  height="400"
+  viewBox="0 0 300 400"
+>
+  <!-- Gallows -->
+  <line x1="150" y1="30" x2="150" y2="100" stroke="black" stroke-width="10" />
+  <line x1="50" y1="30" x2="150" y2="30" stroke="black" stroke-width="10" />
+  <line x1="50" y1="30" x2="50" y2="400" stroke="black" stroke-width="10" />
+  <line x1="40" y1="400" x2="60" y2="400" stroke="black" stroke-width="10" />
+
+  <!-- Head -->
+  <circle
+    *ngIf="mistakes <= 5"
+    cx="150"
+    cy="130"
+    r="30"
+    stroke="black"
+    stroke-width="5"
+    fill="none"
+    [style.display]="mistakes <= 5 ? 'block' : 'none'"
+  />
+
+  <!-- Body -->
+  <line
+    *ngIf="mistakes <= 4"
+    x1="150"
+    y1="160"
+    x2="150"
+    y2="250"
+    stroke="black"
+    stroke-width="5"
+    [style.display]="mistakes <= 4 ? 'block' : 'none'"
+  />
+
+  <!-- Left Arm -->
+  <line
+    *ngIf="mistakes <= 3"
+    x1="150"
+    y1="190"
+    x2="120"
+    y2="220"
+    stroke="black"
+    stroke-width="5"
+    [style.display]="mistakes <= 3 ? 'block' : 'none'"
+  />
+
+  <!-- Right Arm -->
+  <line
+    *ngIf="mistakes <= 2"
+    x1="150"
+    y1="190"
+    x2="180"
+    y2="220"
+    stroke="black"
+    stroke-width="5"
+    [style.display]="mistakes <= 2 ? 'block' : 'none'"
+  />
+
+  <!-- Left Leg -->
+  <line
+    *ngIf="mistakes <= 1"
+    x1="150"
+    y1="250"
+    x2="120"
+    y2="290"
+    stroke="black"
+    stroke-width="5"
+    [style.display]="mistakes <= 1 ? 'block' : 'none'"
+  />
+
+  <!-- Right Leg -->
+  <line
+    *ngIf="mistakes <= 0"
+    x1="150"
+    y1="250"
+    x2="180"
+    y2="290"
+    stroke="black"
+    stroke-width="5"
+    [style.display]="mistakes <= 0 ? 'block' : 'none'"
+  />
+</svg>
+<div class="errores">Vidas: {{ mistakes }}</div>

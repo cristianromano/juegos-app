@@ -1,0 +1,24 @@
+<div class="hangman">
+  <app-ahorcado-display
+    [guesses]="guesses"
+    [question]="question"
+    (gameFinished)="gameFinish()"
+  >
+  </app-ahorcado-display>
+
+  <ng-container *ngIf="!restartGameBtn; else restartGameBtnShown">
+    <app-ahorcado-preguntas
+      [guesses]="guesses"
+      [question]="question"
+    ></app-ahorcado-preguntas>
+    <app-ahorcado-teclado
+      [question]="question"
+      (keyPressed)="guess($event)"
+    ></app-ahorcado-teclado>
+  </ng-container>
+  <ng-template #restartGameBtnShown>
+    <button class="btn" (click)="reset()">
+      {{ "Jugar otra vez" }}
+    </button>
+  </ng-template>
+</div>
