@@ -12,4 +12,8 @@ export class HomeComponent {
   irAhorcado() {
     this.route.navigate(['home/ahorcado']);
   }
+
+  irCartas() {
+    this.route.navigate(['home/cartas']);
+  }
 }

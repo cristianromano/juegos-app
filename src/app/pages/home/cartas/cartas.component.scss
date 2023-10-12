@@ -1,0 +1,24 @@
+.cartas-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70%;
+  width: 99.98%;
+  background-color: green;
+}
+
+.cartas-preguntas {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  background-color: rgb(135, 139, 135);
+  height: 213px;
+}
+
+.resultado {
+  background-color: pink;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

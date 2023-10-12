@@ -1,0 +1,11 @@
+<div class="cartas-container">
+  <img [src]="backCard" />
+  <img [src]="this.currentCard.image" />
+</div>
+<div class="resultado">
+  {{ mensaje }}
+</div>
+<div class="cartas-preguntas">
+  <button mat-raised-button color="warn" (click)="esMayor()">Mayor</button>
+  <button mat-raised-button color="warn" (click)="esMenor()">Menor</button>
+</div>

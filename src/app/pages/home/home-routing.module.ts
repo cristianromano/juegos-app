@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home.component';
 import { AhorcadoComponent } from './ahorcado/ahorcado.component';
+import { CartasComponent } from './cartas/cartas.component';
 
 const routes: Routes = [
   {
@@ -9,8 +10,12 @@ const routes: Routes = [
     component: HomeComponent,
   },
   {
-    path: 'home/ahorcado', // Ruta secundaria para el juego Ahorcado
+    path: 'home/ahorcado',
     component: AhorcadoComponent,
+  },
+  {
+    path: 'home/cartas',
+    component: CartasComponent,
   },
 ];
 
