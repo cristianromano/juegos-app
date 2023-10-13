@@ -31,4 +31,12 @@ export class NavbarComponent {
       }
     });
   }
+
+  irSegunLog() {
+    if (this.userEmail) {
+      return '/home';
+    } else {
+      return '/';
+    }
+  }
 }
