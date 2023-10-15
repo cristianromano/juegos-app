@@ -1,0 +1,47 @@
+<mat-accordion>
+  <mat-expansion-panel hideToggle>
+    <mat-expansion-panel-header>
+      <mat-panel-title> Chat Global </mat-panel-title>
+      <mat-panel-description>
+        Apreta para empezar a chatear!
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <form [formGroup]="messageForm" (ngSubmit)="enviarMensaje()">
+      <textarea
+        name=""
+        id=""
+        cols="30"
+        rows="10"
+        style="
+          width: 100%;
+          height: 300px;
+          resize: none;
+          border: none;
+          padding: 0;
+          outline: none;
+        "
+        [readonly]="isReadOnly"
+        >{{ chatText }}</textarea
+      >
+      <mat-form-field style="width: 100%" appearance="fill">
+        <mat-label>Mensaje</mat-label>
+        <textarea
+          matInput
+          #message
+          maxlength="256"
+          placeholder="Ecribe algo.."
+          formControlName="message"
+          style="resize: none"
+          (keypress)="onKeyPress($event)"
+        ></textarea>
+        <mat-hint align="end">{{ message.value.length }} / 256</mat-hint>
+      </mat-form-field>
+      <button mat-raised-button color="accent" type="submit">Enviar</button>
+    </form>
+  </mat-expansion-panel>
+  <mat-expansion-panel
+    (opened)="panelOpenState = true"
+    (closed)="panelOpenState = false"
+  >
+  </mat-expansion-panel>
+</mat-accordion>

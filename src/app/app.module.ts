@@ -24,7 +24,7 @@ import { AngularFireModule } from '@angular/fire/compat';
 
 // import { BioModule } from './components/bio/bio.module';
 // import { NavbarComponent } from './components/navbar/navbar.component';
-
+import { MatExpansionModule } from '@angular/material/expansion';
 import { ToastrModule } from 'ngx-toastr';
 
 import { NavbarComponent } from './navbar/navbar.component';
@@ -35,6 +35,7 @@ import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [AppComponent, LoginComponent, NavbarComponent, BioComponent],
   imports: [
+    MatExpansionModule,
     HttpClientModule,
     LoginModule,
     BrowserModule,
