@@ -17,6 +17,7 @@ import { initializeApp } from 'firebase/app';
 import { environment } from 'src/environments/environment';
 import { Auth, signInWithEmailAndPassword } from '@angular/fire/auth';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { getAuth } from 'firebase/auth';
 @Component({
   selector: 'app-chat',
   templateUrl: './chat.component.html',
@@ -33,13 +34,14 @@ export class ChatComponent implements OnInit {
   isReadOnly = true;
   chats: any[] = [];
   chatText?: string;
+  auth = getAuth(this.app);
 
   ngOnInit(): void {
     this.traerData();
     this.scrollToBottom();
   }
 
-  constructor(private auth: Auth, private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder) {
     this.messageForm = this.formBuilder.group({
       message: ['', Validators.required],
     });

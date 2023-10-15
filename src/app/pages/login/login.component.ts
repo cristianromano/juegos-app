@@ -8,10 +8,11 @@ import {
   getFirestore,
   collection,
 } from 'firebase/firestore';
-import { Auth, signInWithEmailAndPassword } from '@angular/fire/auth';
+//import { Auth, signInWithEmailAndPassword } from '@angular/fire/auth';
 import { ToastrService } from 'ngx-toastr';
 import { initializeApp } from 'firebase/app';
 import { environment } from 'src/environments/environment';
+import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -20,13 +21,10 @@ import { environment } from 'src/environments/environment';
 export class LoginComponent {
   app = initializeApp(environment.firebase);
   db = getFirestore(this.app);
+  auth = getAuth(this.app);
   email: string = '';
   password: string = '';
-  constructor(
-    private route: Router,
-    private auth: Auth,
-    private toastr: ToastrService
-  ) {}
+  constructor(private route: Router, private toastr: ToastrService) {}
 
   async login() {
     signInWithEmailAndPassword(this.auth, this.email, this.password)

@@ -1,14 +1,20 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { Auth } from '@angular/fire/auth';
+//import { Auth, getAuth } from '@angular/fire/auth';
+import { initializeApp } from 'firebase/app';
+import { environment } from 'src/environments/environment';
+import { getAuth } from 'firebase/auth';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent {
+  app = initializeApp(environment.firebase);
+  auth = getAuth(this.app);
+
   userEmail: string | null = null;
-  constructor(private route: Router, private auth: Auth) {}
+  constructor(private route: Router) {}
   redirigirBio() {
     this.route.navigate(['/bio']);
   }

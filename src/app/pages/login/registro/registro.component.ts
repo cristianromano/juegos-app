@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
-import { Auth, createUserWithEmailAndPassword } from '@angular/fire/auth';
+//import { createUserWithEmailAndPassword } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-
+import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
+import { initializeApp } from 'firebase/app';
+import { environment } from 'src/environments/environment';
 @Component({
   selector: 'app-registro',
   templateUrl: './registro.component.html',
@@ -11,11 +13,9 @@ import { ToastrService } from 'ngx-toastr';
 export class RegistroComponent {
   email: string = '';
   password: string = '';
-  constructor(
-    private route: Router,
-    private auth: Auth,
-    private toastr: ToastrService
-  ) {}
+  app = initializeApp(environment.firebase);
+  auth = getAuth(this.app);
+  constructor(private route: Router, private toastr: ToastrService) {}
 
   registrarse() {
     createUserWithEmailAndPassword(this.auth, this.email, this.password)
