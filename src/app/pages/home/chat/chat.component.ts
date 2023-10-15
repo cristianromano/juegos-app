@@ -10,6 +10,7 @@ import {
   query,
   where,
   getDocs,
+  orderBy,
 } from 'firebase/firestore';
 import { MatAccordion } from '@angular/material/expansion';
 import { initializeApp } from 'firebase/app';
@@ -66,14 +67,8 @@ export class ChatComponent implements OnInit {
   }
 
   async traerData() {
-    // const querySnapshot = await getDocs(collection(this.db, 'chats'));
-    // querySnapshot.forEach((element) => {
-    //   const data = element.data();
-    //   this.chats.push(element.data());
-    //   this.chatText += `${data['nombre']}: ${data['mensaje']}\n`;
-    // });
-
-    const unsubscribe = onSnapshot(collection(this.db, 'chats'), (snapshot) => {
+    const q = query(collection(this.db, 'chats'), orderBy('fecha', 'asc'));
+    const unsubscribe = onSnapshot(q, (snapshot) => {
       snapshot.docChanges().forEach((change) => {
         const data = change.doc.data();
         this.chats.push(data);
