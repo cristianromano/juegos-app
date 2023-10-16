@@ -16,4 +16,8 @@ export class HomeComponent {
   irCartas() {
     this.route.navigate(['home/cartas']);
   }
+
+  irPreguntas() {
+    this.route.navigate(['home/preguntas']);
+  }
 }

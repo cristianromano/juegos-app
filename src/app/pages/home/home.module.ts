@@ -14,9 +14,12 @@ import { MatAccordion, MatExpansionModule } from '@angular/material/expansion';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
+import { PreguntasComponent } from './preguntas/preguntas.component';
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [
+    PreguntasComponent,
     AhorcadoComponent,
     CartasComponent,
     HomeComponent,
@@ -35,6 +38,7 @@ import { MatInputModule } from '@angular/material/input';
     MatExpansionModule,
     MatFormFieldModule,
     MatIconModule,
+    MatCardModule,
   ],
 })
 export class HomeModule {}

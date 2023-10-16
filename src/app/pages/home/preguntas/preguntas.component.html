@@ -1,0 +1,52 @@
+<div class="container">
+  <mat-card class="example-card">
+    <img mat-card-image [src]="preguntasArr[preguntaActual].imagen" />
+    <mat-card-content>
+      <p>
+        {{ preguntasArr[preguntaActual].pregunta }}
+      </p>
+      <mat-card-actions>
+        <button
+          mat-button
+          mat-flat-button
+          color="primary"
+          (click)="respuesta(preguntasArr[preguntaActual].opciones[0])"
+        >
+          {{ preguntasArr[preguntaActual].opciones[0].opcion1 }}
+        </button>
+        <button
+          mat-button
+          mat-flat-button
+          color="primary"
+          (click)="respuesta(preguntasArr[preguntaActual].opciones[1])"
+        >
+          {{ preguntasArr[preguntaActual].opciones[1].opcion2 }}
+        </button>
+        <button
+          mat-button
+          mat-flat-button
+          color="primary"
+          (click)="respuesta(preguntasArr[preguntaActual].opciones[2])"
+        >
+          {{ preguntasArr[preguntaActual].opciones[2].opcion3 }}
+        </button>
+      </mat-card-actions>
+
+      <mat-label *ngIf="mostrarRespuestaIncorrecta" style="color: red">
+        ¡Respuesta incorrecta!
+      </mat-label>
+
+      <mat-label *ngIf="mostrarRespuestaCorrecta" style="color: green">
+        ¡Respuesta Correcta!
+      </mat-label>
+    </mat-card-content>
+    <div
+      style="display: flex; justify-content: center"
+      (click)="siguientePregunta()"
+    >
+      <button mat-button mat-stroked-button color="warn">
+        Siguiente Pregunta
+      </button>
+    </div>
+  </mat-card>
+</div>

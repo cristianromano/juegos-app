@@ -1,0 +1,58 @@
+{
+  "preguntas": [
+    {
+      "pregunta": "Que personaje es?",
+      "imagen": "./assets/preguntas/donald.jpg",
+      "opciones": [
+        {
+          "opcion1": "Pato Donald",
+          "correcto": true
+        },
+        {
+          "opcion2": "Mickey",
+          "correcto": false
+        },
+        {
+          "opcion3": "Daisy",
+          "correcto": false
+        }
+      ]
+    },
+    {
+      "pregunta": "Que serie es?",
+      "imagen": "./assets/preguntas/stranger.jpg",
+      "opciones": [
+        {
+          "opcion1": "Stranger Things",
+          "correcto": true
+        },
+        {
+          "opcion2": "Friends",
+          "correcto": false
+        },
+        {
+          "opcion3": "Terminator",
+          "correcto": false
+        }
+      ]
+    },
+    {
+      "pregunta": "Cuantas copas del mundo tiene Argentina?",
+      "imagen": "./assets/preguntas/afa.png",
+      "opciones": [
+        {
+          "opcion1": "3",
+          "correcto": true
+        },
+        {
+          "opcion2": "4",
+          "correcto": false
+        },
+        {
+          "opcion3": "2",
+          "correcto": false
+        }
+      ]
+    }
+  ]
+}
