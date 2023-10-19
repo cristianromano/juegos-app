@@ -31,9 +31,10 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { LoginModule } from './pages/login/login.module';
 import { BioComponent } from './bio/bio.component';
 import { HttpClientModule } from '@angular/common/http';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, NavbarComponent, BioComponent],
+  declarations: [AppComponent, LoginComponent, NavbarComponent, BioComponent, NotFoundComponent],
   imports: [
     MatExpansionModule,
     HttpClientModule,
