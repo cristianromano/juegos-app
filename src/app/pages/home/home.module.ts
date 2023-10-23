@@ -16,6 +16,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { PreguntasComponent } from './preguntas/preguntas.component';
 import { MatCardModule } from '@angular/material/card';
+import { CuadradosComponent } from './cuadrados/cuadrados.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { MatCardModule } from '@angular/material/card';
     AhorcadoPreguntasComponent,
     AhorcadoDisplayComponent,
     ChatComponent,
+    CuadradosComponent,
   ],
   imports: [
     ReactiveFormsModule,

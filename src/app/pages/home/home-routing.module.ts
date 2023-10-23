@@ -5,6 +5,7 @@ import { AhorcadoComponent } from './ahorcado/ahorcado.component';
 import { CartasComponent } from './cartas/cartas.component';
 import { PreguntasComponent } from './preguntas/preguntas.component';
 import { AuthGuard } from 'src/app/guards/auth.guard';
+import { CuadradosComponent } from './cuadrados/cuadrados.component';
 
 const routes: Routes = [
   {
@@ -25,6 +26,11 @@ const routes: Routes = [
   {
     path: 'home/preguntas',
     component: PreguntasComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'home/cuadrados',
+    component: CuadradosComponent,
     canActivate: [AuthGuard],
   },
 ];

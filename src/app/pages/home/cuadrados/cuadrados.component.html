@@ -1,0 +1,5 @@
+<p>Score: {{ score }}</p>
+<p>Tiempo: {{ remainingTime }}</p>
+<p *ngIf="remainingTime <= 0">Juego terminado</p>
+<button *ngIf="gameEnded" (click)="restartGame()">Volver a empezar</button>
+<div #container style="position: relative; width: 100%; height: 80%"></div>
