@@ -32,9 +32,17 @@ import { LoginModule } from './pages/login/login.module';
 import { BioComponent } from './bio/bio.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NotFoundComponent } from './not-found/not-found.component';
-
+import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
 @NgModule({
-  declarations: [AppComponent, LoginComponent, NavbarComponent, BioComponent, NotFoundComponent],
+  declarations: [
+    AppComponent,
+    LoginComponent,
+    NavbarComponent,
+    BioComponent,
+    NotFoundComponent,
+    ConfirmationDialogComponent,
+  ],
   imports: [
     MatExpansionModule,
     HttpClientModule,
@@ -51,6 +59,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
     MatProgressBarModule,
     MatToolbarModule,
     MatIconModule,
+    MatDialogModule,
     ToastrModule.forRoot({
       positionClass: 'toast-bottom-right',
       preventDuplicates: true,

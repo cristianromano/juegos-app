@@ -21,7 +21,7 @@ export class CartasComponent implements OnInit {
   mensaje: any;
   score: number = 0;
   tiempo: any = 0;
-  tiempoDisponible: any = 10;
+  tiempoDisponible: any = 60;
   gameEnded?: boolean;
   gameActive?: boolean = true;
   base: string = 'cartas';
@@ -36,7 +36,7 @@ export class CartasComponent implements OnInit {
       if (this.tiempoDisponible <= 0) {
         this.endGame();
       }
-    }, 1000); // Cada segundo
+    }, 1000);
   }
 
   endGame() {

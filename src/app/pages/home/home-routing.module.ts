@@ -7,6 +7,7 @@ import { PreguntasComponent } from './preguntas/preguntas.component';
 import { AuthGuard } from 'src/app/guards/auth.guard';
 import { CuadradosComponent } from './cuadrados/cuadrados.component';
 import { EncuestaComponent } from './encuesta/encuesta.component';
+import { CambiosGuard } from 'src/app/guards/cambios.guard';
 
 const routes: Routes = [
   {
@@ -37,6 +38,7 @@ const routes: Routes = [
   {
     path: 'home/encuesta',
     component: EncuestaComponent,
+    canDeactivate: [CambiosGuard],
     canActivate: [AuthGuard],
   },
 ];

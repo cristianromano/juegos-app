@@ -20,6 +20,8 @@ import { CuadradosComponent } from './cuadrados/cuadrados.component';
 import { RankComponent } from './rank/rank.component';
 import { MatTableModule } from '@angular/material/table';
 import { EncuestaComponent } from './encuesta/encuesta.component';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 @NgModule({
   declarations: [
@@ -47,6 +49,8 @@ import { EncuestaComponent } from './encuesta/encuesta.component';
     MatIconModule,
     MatCardModule,
     MatTableModule,
+    MatRadioModule,
+    MatCheckboxModule,
   ],
 })
 export class HomeModule {}
