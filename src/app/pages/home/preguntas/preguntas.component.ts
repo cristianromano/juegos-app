@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FirestoreService } from 'src/app/services/firestore.service';
 import { PreguntasService } from 'src/app/services/preguntas.service';
 
 @Component({
@@ -11,8 +12,43 @@ export class PreguntasComponent implements OnInit {
   preguntaActual: number = 0;
   mostrarRespuestaCorrecta: boolean = false;
   mostrarRespuestaIncorrecta: boolean = false;
+  tiempo: any;
+  tiempoDisponible: any = 10;
+  gameEnded?: boolean;
+  gameActive?: boolean = true;
+  score: any = 0;
+  base: string = 'preguntas';
+  constructor(
+    private preguntas: PreguntasService,
+    private firestore: FirestoreService
+  ) {}
 
-  constructor(private preguntas: PreguntasService) {}
+  startGame() {
+    this.tiempo = setInterval(() => {
+      this.tiempoDisponible--;
+      if (this.tiempoDisponible <= 0) {
+        this.endGame();
+      }
+    }, 1000);
+  }
+
+  endGame() {
+    clearInterval(this.tiempo);
+    clearTimeout(this.tiempoDisponible);
+    this.gameEnded = true;
+    this.gameActive = false;
+    const data = { nombre: this.firestore.getUser(), puntaje: this.score };
+    this.firestore.setData(data, 'preguntas');
+    console.log('Juego terminado. Puntaje final:', this.score);
+  }
+
+  restartGame() {
+    this.gameEnded = false;
+    this.gameActive = true;
+    this.score = 0;
+    this.tiempoDisponible = 60;
+    this.startGame();
+  }
 
   ngOnInit(): void {
     this.preguntas.getPreguntas().subscribe((data) => {
@@ -23,7 +59,7 @@ export class PreguntasComponent implements OnInit {
           opciones: pregunta.opciones,
         });
       });
-      console.log(this.preguntasArr[0].opciones[1]);
+      this.startGame();
     });
   }
 
@@ -40,7 +76,7 @@ export class PreguntasComponent implements OnInit {
       this.mostrarRespuestaCorrecta = true;
       this.mostrarRespuestaIncorrecta = false;
       setTimeout(() => {
-        debugger;
+        this.score++;
         this.siguientePregunta();
         this.mostrarRespuestaCorrecta = false;
       }, 1000);
@@ -48,6 +84,7 @@ export class PreguntasComponent implements OnInit {
       this.mostrarRespuestaCorrecta = false;
       this.mostrarRespuestaIncorrecta = true;
       setTimeout(() => {
+        this.score = 0;
         this.mostrarRespuestaIncorrecta = false;
       }, 2000);
     }

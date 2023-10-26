@@ -1,3 +1,13 @@
+<mat-accordion style="position: fixed; width: 400px; top: 10px; left: 900px">
+  <mat-expansion-panel hideToggle>
+    <mat-expansion-panel-header>
+      <mat-panel-title> Tabla de posiciones </mat-panel-title>
+      <mat-panel-description> Aprete para ver </mat-panel-description>
+    </mat-expansion-panel-header>
+    <app-rank [base]="base"></app-rank>
+  </mat-expansion-panel>
+</mat-accordion>
+
 <p>Score: {{ score }}</p>
 <p>Tiempo: {{ remainingTime }}</p>
 <p *ngIf="remainingTime <= 0">Juego terminado</p>

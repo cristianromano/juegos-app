@@ -1,4 +1,17 @@
 <div class="container">
+  <app-rank
+    [base]="base"
+    style="position: fixed; width: 60px; top: 70px; left: 1600px"
+  ></app-rank>
+  <div style="color: aliceblue">
+    Puntaje:{{ score }} Tiempo:{{ tiempoDisponible }}
+  </div>
+  <div *ngIf="gameEnded">
+    <p style="color: antiquewhite">Juego Terminado!</p>
+    <button (click)="restartGame()" mat-raised-button color="primary">
+      Voler a Jugar!
+    </button>
+  </div>
   <div class="items">
     <img [src]="preguntasArr[preguntaActual].imagen" />
     <mat-card-content>
@@ -11,6 +24,7 @@
           mat-flat-button
           color="primary"
           (click)="respuesta(preguntasArr[preguntaActual].opciones[0])"
+          [disabled]="gameEnded"
         >
           {{ preguntasArr[preguntaActual].opciones[0].opcion1 }}
         </button>
@@ -19,6 +33,7 @@
           mat-flat-button
           color="primary"
           (click)="respuesta(preguntasArr[preguntaActual].opciones[1])"
+          [disabled]="gameEnded"
         >
           {{ preguntasArr[preguntaActual].opciones[1].opcion2 }}
         </button>
@@ -27,6 +42,7 @@
           mat-flat-button
           color="primary"
           (click)="respuesta(preguntasArr[preguntaActual].opciones[2])"
+          [disabled]="gameEnded"
         >
           {{ preguntasArr[preguntaActual].opciones[2].opcion3 }}
         </button>

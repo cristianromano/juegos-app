@@ -1,11 +1,12 @@
 <div class="hangman">
+  <div>Tiempo:{{ tiempoDisponible }}</div>
   <app-ahorcado-display
     [guesses]="guesses"
     [question]="question"
     (gameFinished)="gameFinish()"
   >
   </app-ahorcado-display>
-
+  <app-rank [base]="base" style="margin-left: 30px"></app-rank>
   <ng-container *ngIf="!restartGameBtn; else restartGameBtnShown">
     <app-ahorcado-preguntas
       [guesses]="guesses"

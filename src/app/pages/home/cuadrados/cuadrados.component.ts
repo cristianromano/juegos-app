@@ -1,4 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { FirestoreService } from 'src/app/services/firestore.service';
 
 @Component({
   selector: 'app-cuadrados',
@@ -14,8 +15,11 @@ export class CuadradosComponent implements OnInit {
   remainingTime: number = 60;
   gameEnded: boolean = false;
   gameActive: boolean = true;
-
+  base: string = 'cuadrados';
+  panelOpenState = false;
+  constructor(private firestore: FirestoreService) {}
   ngOnInit(): void {
+    debugger;
     this.startGame();
   }
   startGame() {
@@ -35,6 +39,8 @@ export class CuadradosComponent implements OnInit {
     this.gameEnded = true;
     this.gameActive = false;
     console.log('Juego terminado. Puntaje final:', this.score);
+    const data = { nombre: this.firestore.getUser(), puntaje: this.score };
+    this.firestore.setData(data, 'cuadrados');
     this.clearRemainingSquares();
   }
 
@@ -80,7 +86,7 @@ export class CuadradosComponent implements OnInit {
           }
           this.generateRandomSquare();
         }
-      }, 3000); // Desaparecerá después de 3 segundos
+      }, 3000);
     }
   }
 

@@ -17,6 +17,8 @@ import { MatInputModule } from '@angular/material/input';
 import { PreguntasComponent } from './preguntas/preguntas.component';
 import { MatCardModule } from '@angular/material/card';
 import { CuadradosComponent } from './cuadrados/cuadrados.component';
+import { RankComponent } from './rank/rank.component';
+import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
   declarations: [
@@ -29,6 +31,7 @@ import { CuadradosComponent } from './cuadrados/cuadrados.component';
     AhorcadoDisplayComponent,
     ChatComponent,
     CuadradosComponent,
+    RankComponent,
   ],
   imports: [
     ReactiveFormsModule,
@@ -41,6 +44,7 @@ import { CuadradosComponent } from './cuadrados/cuadrados.component';
     MatFormFieldModule,
     MatIconModule,
     MatCardModule,
+    MatTableModule,
   ],
 })
 export class HomeModule {}

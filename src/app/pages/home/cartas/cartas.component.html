@@ -1,6 +1,23 @@
+<div
+  style="
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: antiquewhite;
+  "
+>
+  Puntaje:{{ score }} Tiempo: {{ tiempoDisponible }}
+</div>
+<div *ngIf="gameEnded">
+  Desea volver a jugar?
+  <button (click)="restartGame()" mat-raised-button color="primary">
+    Voler a jugar
+  </button>
+</div>
 <div class="cartas-container">
   <img [src]="backCard" />
   <img [src]="this.currentCard.image" />
+  <app-rank [base]="base" style="margin-left: 30px"></app-rank>
 </div>
 <div class="resultado">
   {{ mensaje }}

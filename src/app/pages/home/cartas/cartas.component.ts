@@ -1,6 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { CartasService } from 'src/app/services/cartas.service';
+import { FirestoreService } from 'src/app/services/firestore.service';
 
+interface CartaRank {
+  nombre: string;
+  puntaje: string;
+}
 @Component({
   selector: 'app-cartas',
   templateUrl: './cartas.component.html',
@@ -14,13 +19,50 @@ export class CartasComponent implements OnInit {
   menor: any;
   backCard: string = './assets/back.png';
   mensaje: any;
-  constructor(private cartas: CartasService) {}
+  score: number = 0;
+  tiempo: any = 0;
+  tiempoDisponible: any = 10;
+  gameEnded?: boolean;
+  gameActive?: boolean = true;
+  base: string = 'cartas';
+  constructor(
+    private cartas: CartasService,
+    private firestore: FirestoreService
+  ) {}
+
+  startGame() {
+    this.tiempo = setInterval(() => {
+      this.tiempoDisponible--;
+      if (this.tiempoDisponible <= 0) {
+        this.endGame();
+      }
+    }, 1000); // Cada segundo
+  }
+
+  endGame() {
+    clearInterval(this.tiempo);
+    clearTimeout(this.tiempoDisponible);
+    this.gameEnded = true;
+    this.gameActive = false;
+    console.log('Juego terminado. Puntaje final:', this.score);
+    const data = { nombre: this.firestore.getUser(), puntaje: this.score };
+    this.firestore.setData(data, 'cartas');
+  }
+
+  restartGame() {
+    this.gameEnded = false;
+    this.gameActive = true;
+    this.score = 0;
+    this.tiempoDisponible = 60;
+    this.startGame();
+  }
 
   ngOnInit(): void {
     this.cartas.getCard().subscribe((data) => {
       this.currentCard = data.cards[0];
       console.log(this.currentCard);
     });
+    this.startGame();
   }
 
   cartaNueva() {
@@ -34,15 +76,18 @@ export class CartasComponent implements OnInit {
   comparadorCarta() {
     const currentCard = this.getCardValue(this.currentCard.value);
     const cartaAnterior = this.getCardValue(this.cartaAnterior);
-    if (this.cartaAnterior !== null) {
+    if (this.cartaAnterior !== null && this.gameActive == true) {
+      this.score++;
       this.comparador = cartaAnterior > currentCard;
 
       if (!this.comparador && this.mayor) {
         this.mensaje = 'la carta anterior es menor';
+        this.score = 0;
       }
 
       if (this.comparador && this.menor) {
         this.mensaje = 'la carta anterior es mayor';
+        this.score = 0;
       }
       this.mayor = false;
       this.menor = false;
