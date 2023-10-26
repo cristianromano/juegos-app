@@ -13,7 +13,7 @@ export class PreguntasComponent implements OnInit {
   mostrarRespuestaCorrecta: boolean = false;
   mostrarRespuestaIncorrecta: boolean = false;
   tiempo: any;
-  tiempoDisponible: any = 10;
+  tiempoDisponible: any = 40;
   gameEnded?: boolean;
   gameActive?: boolean = true;
   score: any = 0;
@@ -46,7 +46,7 @@ export class PreguntasComponent implements OnInit {
     this.gameEnded = false;
     this.gameActive = true;
     this.score = 0;
-    this.tiempoDisponible = 60;
+    this.tiempoDisponible = 40;
     this.startGame();
   }
 
@@ -64,7 +64,7 @@ export class PreguntasComponent implements OnInit {
   }
 
   siguientePregunta() {
-    if (this.preguntaActual == 2) {
+    if (this.preguntaActual == 10) {
       this.preguntaActual = 0;
     } else {
       this.preguntaActual++;

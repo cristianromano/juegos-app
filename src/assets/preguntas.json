@@ -53,6 +53,150 @@
           "correcto": false
         }
       ]
+    },
+    {
+      "pregunta": "Que personaje es?",
+      "imagen": "./assets/preguntas/naruto.jpg",
+      "opciones": [
+        {
+          "opcion1": "Itachi",
+          "correcto": false
+        },
+        {
+          "opcion2": "Naruto",
+          "correcto": true
+        },
+        {
+          "opcion3": "Sasuke",
+          "correcto": false
+        }
+      ]
+    },
+    {
+      "pregunta": "Que personaje es?",
+      "imagen": "./assets/preguntas/eren.jpg",
+      "opciones": [
+        {
+          "opcion1": "Jorge",
+          "correcto": false
+        },
+        {
+          "opcion2": "Mikasa",
+          "correcto": false
+        },
+        {
+          "opcion3": "Eren",
+          "correcto": true
+        }
+      ]
+    },
+    {
+      "pregunta": "Que personaje es?",
+      "imagen": "./assets/preguntas/luffy.jpg",
+      "opciones": [
+        {
+          "opcion1": "Luffy",
+          "correcto": true
+        },
+        {
+          "opcion2": "Nami",
+          "correcto": false
+        },
+        {
+          "opcion3": "Sanji",
+          "correcto": false
+        }
+      ]
+    },
+    {
+      "pregunta": "Que personaje es?",
+      "imagen": "./assets/preguntas/gon.png",
+      "opciones": [
+        {
+          "opcion1": "Killua",
+          "correcto": false
+        },
+        {
+          "opcion2": "Gon",
+          "correcto": true
+        },
+        {
+          "opcion3": "Hisoka",
+          "correcto": false
+        }
+      ]
+    },
+    {
+      "pregunta": "Que pais es?",
+      "imagen": "./assets/preguntas/libano.jpg",
+      "opciones": [
+        {
+          "opcion1": "Libano",
+          "correcto": true
+        },
+        {
+          "opcion2": "Ecuador",
+          "correcto": false
+        },
+        {
+          "opcion3": "Islandia",
+          "correcto": false
+        }
+      ]
+    },
+    {
+      "pregunta": "Cuantas provincias hay en Argentina?",
+      "imagen": "./assets/preguntas/argentina.jpg",
+      "opciones": [
+        {
+          "opcion1": "20",
+          "correcto": false
+        },
+        {
+          "opcion2": "23",
+          "correcto": true
+        },
+        {
+          "opcion3": "24",
+          "correcto": false
+        }
+      ]
+    },
+    {
+      "pregunta": "En que pais se jugo el Mundial 2014?",
+      "imagen": "./assets/preguntas/fifa.jpg",
+      "opciones": [
+        {
+          "opcion1": "Honduras",
+          "correcto": false
+        },
+        {
+          "opcion2": "Brasil",
+          "correcto": true
+        },
+        {
+          "opcion3": "Francia",
+          "correcto": false
+        }
+      ]
+    },
+    {
+      "pregunta": "En que pais se jugo el Mundial 2006?",
+      "imagen": "./assets/preguntas/fifa.jpg",
+      "opciones": [
+        {
+          "opcion1": "Rusia",
+          "correcto": false
+        },
+        {
+          "opcion2": "Mexico",
+          "correcto": false
+        },
+        {
+          "opcion3": "Alemania",
+          "correcto": true
+        }
+      ]
     }
   ]
 }
