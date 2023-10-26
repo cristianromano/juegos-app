@@ -24,4 +24,8 @@ export class HomeComponent {
   irCuadrados() {
     this.route.navigate(['home/cuadrados']);
   }
+
+  irEncuesta() {
+    this.route.navigate(['home/encuesta']);
+  }
 }

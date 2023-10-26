@@ -6,6 +6,7 @@ import { CartasComponent } from './cartas/cartas.component';
 import { PreguntasComponent } from './preguntas/preguntas.component';
 import { AuthGuard } from 'src/app/guards/auth.guard';
 import { CuadradosComponent } from './cuadrados/cuadrados.component';
+import { EncuestaComponent } from './encuesta/encuesta.component';
 
 const routes: Routes = [
   {
@@ -31,6 +32,11 @@ const routes: Routes = [
   {
     path: 'home/cuadrados',
     component: CuadradosComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'home/encuesta',
+    component: EncuestaComponent,
     canActivate: [AuthGuard],
   },
 ];

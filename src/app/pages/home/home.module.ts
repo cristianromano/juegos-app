@@ -19,6 +19,7 @@ import { MatCardModule } from '@angular/material/card';
 import { CuadradosComponent } from './cuadrados/cuadrados.component';
 import { RankComponent } from './rank/rank.component';
 import { MatTableModule } from '@angular/material/table';
+import { EncuestaComponent } from './encuesta/encuesta.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { MatTableModule } from '@angular/material/table';
     ChatComponent,
     CuadradosComponent,
     RankComponent,
+    EncuestaComponent,
   ],
   imports: [
     ReactiveFormsModule,
