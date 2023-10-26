@@ -30,22 +30,42 @@ export class FirestoreService {
     });
   }
 
-  async getData(base: string) {
-    return new Promise<any[]>((resolve, reject) => {
-      const data: any[] = [];
-      const q = query(
-        collection(this.db, base),
-        orderBy('puntaje', 'desc'),
-        limit(5)
-      );
-      const unsubscribe = onSnapshot(q, (querySnapshot) => {
-        data.length = 0;
-        querySnapshot.docChanges().forEach((doc) => {
-          data.push(doc.doc.data());
-        });
-        resolve(data);
+  // async getData(base: string) {
+  //   debugger;
+  //   return new Promise<any[]>((resolve, reject) => {
+  //     const data: any[] = [];
+  //     const q = query(
+  //       collection(this.db, base),
+  //       orderBy('puntaje', 'desc'),
+  //       limit(5)
+  //     );
+  //     const unsubscribe = onSnapshot(q, (querySnapshot) => {
+  //       data.length = 0;
+  //       querySnapshot.forEach((doc) => {
+  //         data.push(doc.data());
+  //       });
+  //       resolve(data);
+  //     });
+  //   });
+  // }
+
+  getData(base: string, callback: (data: any[]) => void) {
+    const data: any[] = [];
+    const q = query(
+      collection(this.db, base),
+      orderBy('puntaje', 'desc'),
+      limit(5)
+    );
+
+    const unsubscribe = onSnapshot(q, (querySnapshot) => {
+      data.length = 0;
+      querySnapshot.forEach((doc) => {
+        data.push(doc.data());
       });
+      callback(data);
     });
+
+    return unsubscribe;
   }
 
   getUser() {

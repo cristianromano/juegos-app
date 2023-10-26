@@ -19,14 +19,16 @@ export class RankComponent implements OnInit {
   @Input() base: string = '';
   constructor(private firestore: FirestoreService) {}
   ngOnInit(): void {
-    debugger;
     this.fetchData(this.base);
   }
 
   async fetchData(base: string) {
     debugger;
-    const data = await this.firestore.getData(base);
-    this.dataSource.data = data;
+
+    this.firestore.getData(base, (data) => {
+      this.dataSource.data = data;
+    });
+
     console.log(this.dataSource);
   }
 }
