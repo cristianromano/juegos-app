@@ -7,7 +7,7 @@ import {
   OnChanges,
   SimpleChanges,
 } from '@angular/core';
-import KEY_CHARS from './../constants/keyCharacters';
+import KEY_CHARS from '../../constants/keyCharacters';
 
 interface IKey {
   value: string;

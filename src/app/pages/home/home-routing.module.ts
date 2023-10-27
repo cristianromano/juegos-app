@@ -17,28 +17,32 @@ const routes: Routes = [
   },
   {
     path: 'home/ahorcado',
-    component: AhorcadoComponent,
+    loadChildren: () =>
+      import('./ahorcado/ahorcado.module').then((m) => m.AhorcadoModule),
     canActivate: [AuthGuard],
   },
   {
     path: 'home/cartas',
-    component: CartasComponent,
+    loadChildren: () =>
+      import('./cartas/cartas.module').then((m) => m.CartasModule),
     canActivate: [AuthGuard],
   },
   {
     path: 'home/preguntas',
-    component: PreguntasComponent,
+    loadChildren: () =>
+      import('./preguntas/preguntas.module').then((m) => m.PreguntasModule),
     canActivate: [AuthGuard],
   },
   {
     path: 'home/cuadrados',
-    component: CuadradosComponent,
+    loadChildren: () =>
+      import('./cuadrados/cuadrados.module').then((m) => m.CuadradosModule),
     canActivate: [AuthGuard],
   },
   {
     path: 'home/encuesta',
-    component: EncuestaComponent,
-    canDeactivate: [CambiosGuard],
+    loadChildren: () =>
+      import('./encuesta/encuesta.module').then((m) => m.EncuestaModule),
     canActivate: [AuthGuard],
   },
 ];

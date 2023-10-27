@@ -4,9 +4,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
 import { AhorcadoComponent } from './ahorcado/ahorcado.component';
-import { AhorcadoTecladoComponent } from './ahorcado-teclado/ahorcado-teclado.component';
-import { AhorcadoPreguntasComponent } from './ahorcado-preguntas/ahorcado-preguntas.component';
-import { AhorcadoDisplayComponent } from './ahorcado-display/ahorcado-display.component';
+import { AhorcadoTecladoComponent } from './ahorcado/ahorcado-teclado/ahorcado-teclado.component';
+import { AhorcadoPreguntasComponent } from './ahorcado/ahorcado-preguntas/ahorcado-preguntas.component';
+import { AhorcadoDisplayComponent } from './ahorcado/ahorcado-display/ahorcado-display.component';
 import { CartasComponent } from './cartas/cartas.component';
 import { MatButtonModule } from '@angular/material/button';
 import { ChatComponent } from './chat/chat.component';
@@ -22,27 +22,28 @@ import { MatTableModule } from '@angular/material/table';
 import { EncuestaComponent } from './encuesta/encuesta.component';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { PreguntasModule } from './preguntas/preguntas.module';
+import { BrowserModule } from '@angular/platform-browser';
+import { CuadradosModule } from './cuadrados/cuadrados.module';
+import { RankModule } from './rank/rank.module';
+import { CartasModule } from './cartas/cartas.module';
+import { EncuestaModule } from './encuesta/encuesta.module';
+import { AhorcadoModule } from './ahorcado/ahorcado.module';
 
 @NgModule({
-  declarations: [
-    PreguntasComponent,
-    AhorcadoComponent,
-    CartasComponent,
-    HomeComponent,
-    AhorcadoTecladoComponent,
-    AhorcadoPreguntasComponent,
-    AhorcadoDisplayComponent,
-    ChatComponent,
-    CuadradosComponent,
-    RankComponent,
-    EncuestaComponent,
-  ],
+  declarations: [HomeComponent, ChatComponent],
   imports: [
-    ReactiveFormsModule,
-    FormsModule,
-    MatInputModule,
     CommonModule,
+    ReactiveFormsModule,
     HomeRoutingModule,
+    FormsModule,
+    PreguntasModule,
+    CuadradosModule,
+    EncuestaModule,
+    RankModule,
+    CartasModule,
+    AhorcadoModule,
+    MatInputModule,
     MatButtonModule,
     MatExpansionModule,
     MatFormFieldModule,

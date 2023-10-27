@@ -17,8 +17,8 @@ import { HomeModule } from '../home/home.module';
   imports: [
     CommonModule,
     LoginRoutingModule,
-    RegistroModule,
     HomeModule,
+    RegistroModule,
     ReactiveFormsModule,
     MatInputModule,
     MatButtonModule,
